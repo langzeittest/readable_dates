@@ -10,19 +10,21 @@
 
 $PHORUM['DATA']['LANG']['mod_readable_dates'] = array(
     'seconds_ago_0' => 'jetzt',
-    'seconds_ago_1' => 'vor %count% Sekunde',
+    'seconds_ago_1' => 'vor einer Sekunde',
     'seconds_ago_x' => 'vor %count% Sekunden',
 
     'minutes_ago_0' => 'diese Minute',
-    'minutes_ago_1' => 'vor %count% Minute',
+    'minutes_ago_1' => 'vor einer Minute',
     'minutes_ago_x' => 'vor %count% Minuten',
 
     'hours_ago_0'   => 'diese Stunde',
-    'hours_ago_1'   => 'vor %count% Stunde',
+    'hours_ago_1'   => 'vor einer Stunde',
     'hours_ago_x'   => 'vor %count% Stunden',
 
-    'days_ago_0'    => 'Heute, %H:%M',
-    'days_ago_1'    => 'Gestern, %H:%M',
+    'days_ago_0'    => 'heute, %H:%M',
+    'days_ago_1'    => 'gestern, '
+                         .( (    isset($PHORUM['mod_readable_dates']['conceal_times'])
+                              && $PHORUM['mod_readable_dates']['conceal_times'] )?'':', %H:%M' ),
     'days_ago_x'    => 'vor %count% Tagen',
 
     'weeks_ago_0'   => 'diese Woche',
@@ -41,7 +43,7 @@ $PHORUM['DATA']['LANG']['mod_readable_dates'] = array(
     // These will be used for the %count% replacements in the above
     // language strings. If no translations are provided, then %count%
     // will be replaced by the numerical representation.
-    '1'  => 'einer',
+    '1'  => 'ein',
     '2'  => 'zwei',
     '3'  => 'drei',
     '4'  => 'vier',
@@ -66,7 +68,7 @@ $PHORUM['DATA']['LANG']['mod_readable_dates'] = array(
     // "EditedMessage" language string from the main language file,
     // to make the modified edit message sound better in combination
     // with a readable date.
-    'edit_message' => '%count%-mal bearbeitet. Die letzte Bearbeitung war %lastedit% von %lastuser%.'
+    'edit_message' => '%count% mal bearbeitet. Die letzte Bearbeitung war %lastedit% von %lastuser%.'
 );
 
 ?>

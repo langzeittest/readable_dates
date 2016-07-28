@@ -1,44 +1,205 @@
-Module  : Readable Dates
-Version : 1.1.12
-Author  : Maurice Makaay
+Module: Readable Dates and Concealed Times Module
+Version: 1.2.0
+Author: Maurice Makaay and Oliver Riesen-Mallmann
 
 Make dates easier to read for humans, by using relative indications like
 "two hours ago", "yesterday, 12:30", "today, 17:52", "two weeks ago",
-"last year", etc. All date indications can be customized through the
-language files.
+"last year", etc.
 
-Install:
---------
+Conceals message timestamp for messages older than 24 hours. Don't let your
+boss know that you wrote at work ...
 
-- Unpack the archive;
+All date indications can be customized through the language files.
 
-- Move the directory "readable_dates" to the directory "mods"
-  within your Phorum installation;
+Tested on version 5.2.20
 
-- Login as administrator in Phorum's administrative interface and
-  go to the "Modules" section;
 
-- Enable the module "Readable Dates".
+License:
+-------
 
-- Go to the settings screen for the module to configure the module
-  (e.g. on what pages to replace the standard dates with readable dates).
+Free to use, modify, or redistribute this code so long as I am given credit for
+the original development somewhere. This code comes with absolutly no warranty.
+
+
+Installation:
+------------
+
+1. Unpack the archive.
+
+2. Move the directory "readable_dates" to the directory "mods" within your
+   Phorum installation. Don't change the directory name!
+
+3. Login as administrator in Phorum's administrative interface and go to the
+   "Modules" section.
+
+4. Enable the module "Readable Dates and Concealed Times".
+
+5. Go to the settings screen for the module to configure the module (e.g. on
+   what pages to replace the standard dates with readable dates).
+
+
+Module settings:
+---------------
+
+== What granularity would you like to use?
+
+By changing the granularity, you can set what interval you want to use as the
+smallest one for formatting the dates. E.g. if you choose for seconds here,
+then you might get "50 seconds ago" as the date. If you set granularity to
+minutes, then the same date would show up as "this minute".
+
+The interval that you select here will not be used for all formatted dates. So
+you do not have to worry about getting things like "3024000 seconds ago" as a
+date if you select seconds for the interval. For this example, it would be
+"five weeks ago" instead.
+
+The default value is "minutes".
+
+
+== What is the time limit that you want to use for formatting?
+
+If you set a time limit, then dates that are older than this time limit will
+not be formatted by this module. For those, the default formatting that is
+applied by Phorum will be used.
+
+The default value is "no limit, format all dates".
+
+
+== Enable readable numbers? (one, two, three instead of 1, 2, 3)
+
+If you enable this feature, then numbers will be translated to their textual
+representation. So instead of "3 days ago", "three days ago" will be shown.
+
+The translation strings for the numbers can be found in the language files for
+this module (mods/readable_dates/lang/*).
+
+The default value is checked.
+
+
+==== Select the pages for which you want to format the dates
+
+== Format dates on the index page (list of forums)
+
+The default value is checked.
+
+
+== Format dates on the list page (list of messages)
+
+The default value is checked.
+
+
+== Format dates on the read page
+
+The default value is unchecked.
+
+
+== Format registration date (Registered: ... ago) for users on the read page
+
+The default value is unchecked.
+
+
+== Format dates on the user profile page
+
+The default value is checked.
+
+
+== Format dates on the private messages list page (list of messages)
+
+The default value is checked.
+
+
+== Format dates on the private messages read page
+
+The default value is unchecked.
+
+
+== Format dates on the buddy list page
+
+The default value is checked.
+
+
+== Format dates for the announcements module
+
+The default value is checked.
+
+==== Concealing Times Settings
+
+== Conceal Times after 24 hours
+
+The default value is unchecked.
+
+
+Language support:
+----------------
+
+This module supports multiple languages.
+
+The following languages are included:
+
+- Dutch
+- Durch informal
+- English
+- French
+- German (Sie)
+- German (Du) male
+- German (Du) female
+- Greek
+- Russian
+- Spanish
+
+If you want to translate the module to a new language, you'll have to do the
+following:
+
+Copy lang/english.php to lang/yourlang.php (yourlang.php must have the same
+name as Phorum's main language file that you use). After this, translate the
+strings in lang/yourlang.php.
+
+If you have created a translation for this module, please post a zip file
+containing lang/yourlang.php in the module thread at phorum.org, so the
+translation can be added to the module package. See:
+http://www.phorum.org/phorum5/read.php?62,128691
+
+
+Sanity Checks:
+-------------
+
+If you have problems with this module login as administrator in Phorum's
+administrative interface and go to the "System Sanity Checks" section. Check
+for warnings or errors for the Readable Dates and Concealed Times Module
+Module.
+
+
+Dependencies:
+------------
+
+- Do not use this module together with the "Conceal Message Timestamp Module".
 
 
 Integration with other modules:
--------------------------------
+------------------------------
 
-Other modules or scripts that want to make use of the readable date
-formatting, can make use of a special hook call. If currently code like
-this is used for formatting:
+Other modules or scripts that want to make use of the readable date formatting,
+can make use of a special hook call. If currently code like this is used for
+formatting:
 
-  $date = phorum_date($PHORUM["short_date_time"], $time);
+    $date = phorum_date($PHORUM["short_date_time"], $time);
 
 then it can be replaced with this:
 
-  if (!empty($PHORUM['hooks']['format_readable_date'])) {
-      $date = phorum_hook('format_readable_date', $time);
-  } else {
-      $date = phorum_date($PHORUM["short_date_time"], $time);
-  }
+    if (!empty($PHORUM['hooks']['format_readable_date'])) {
+        $date = phorum_hook('format_readable_date', $time);
+    } else {
+        $date = phorum_date($PHORUM['short_date_time'], $time);
+    }
 
 
+Contribution:
+------------
+
+Contribute on GitHub:
+
+till version 1.1.11
+https://github.com/mmakaay/Modules/tree/master/readable_dates
+
+from version 1.1.12
+https://github.com/langzeittest/readable_dates
