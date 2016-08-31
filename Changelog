@@ -1,6 +1,9 @@
 Changelog:
 ----------
 
+2016-08-31 version 1.2.1 by Oliver Riesen-Mallmann <oliver@riesen.org>
+- Made XHTML 1.0 Transitional compliant.
+
 2016-07-27 version 1.2.0 by Oliver Riesen-Mallmann <oliver@riesen.org>
 - Module renamed to "Readable Dates and Concealed Times Module".
 - Functions of the "Conceal Message Timestamp Module" included. Formatting

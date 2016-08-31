@@ -51,7 +51,7 @@ $frm->addhelp($row, 'What granularity would you like to use?',
      to use as the smallest one for formatting the dates. E.g. if you
      choose for seconds here, then you might get &quot;50 seconds ago&quot;
      as the date. If you set granularity to minutes, then the same date
-     would show up as &quot;this minute&quot;.<br/><br/>
+     would show up as &quot;this minute&quot;.<br /><br />
      The interval that you select here will not be used for all formatted
      dates. So you do not have to worry about getting things like
      &quot;3024000 seconds ago&quot; as a date if you select seconds for the
@@ -113,7 +113,7 @@ $row = $frm->addrow(
 $frm->addhelp($row, 'Enable readable numbers?',
     'If you enable this feature, then numbers will be translated to their
      textual representation. So instead of &quot;3 days ago&quot;, &quot;three days
-     ago&quot; will be shown.<br/><br/>
+     ago&quot; will be shown.<br /><br />
      The translation strings for the numbers can be found in the
      language files for this module (mods/readable_dates/lang/*).'
 );

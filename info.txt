@@ -4,7 +4,7 @@ author: Maurice Makaay and Oliver Riesen-Mallmann
 url: http://www.phorum.org/phorum5/read.php?62,128691
 category: viewlayout
 require_version: 5.2.7
-version: 1.2.0
+version: 1.2.1
 
 hook: buddy_list|mod_readable_dates_buddy_list
 hook: format|mod_readable_dates_format
